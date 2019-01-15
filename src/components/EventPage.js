@@ -20,7 +20,17 @@ export default class EventPage extends React.Component{
         }else if (error){
             return (<h2>Error occurred, please try to reload page</h2>)
         }else {
-            return this.renderList();
+            return (
+                <table className='eventTable'>
+                    <tr>
+                        <td>Picture</td>
+                        <td>Event</td>
+                        <td>Date/Time</td>
+                        <td>Place</td>
+                    </tr>
+                    {this.renderList()}
+                </table>
+            )
         }
     }
 }

@@ -11,7 +11,12 @@ export default function events(state = defaultState, action) {
         case EVENTS_REQUEST:
             return { ...state, isFetching: true, error: null };
         case EVENTS_SUCCESS: {
-            return { ...state, error: null, isFetching: false, eventList: action.eventList }
+            return {
+                ...state,
+                error: null,
+                isFetching: false,
+                eventList: [...state.eventList, action.eventList]
+            }
         }
         case EVENTS_ERROR:
             return { ...defaultState, error: action.error, isFetching: false };
