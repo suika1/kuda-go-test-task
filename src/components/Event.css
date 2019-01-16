@@ -1,0 +1,16 @@
+.eventRow > *{
+    color: #c9655c;
+    font-weight: 500;
+}
+.eventRow:nth-child(even){
+    background-color: #e9e9e9;
+}
+.eventRow:hover{
+    background-color: #cccccc;
+    cursor: pointer;
+}
+
+.eventImg{
+    max-width: 150px;
+    max-height: 150px;
+}
