@@ -53,3 +53,49 @@
 .nextPage{
     right: 0;
 }
+
+@media screen and (max-width: 760px){
+    .eventTable,
+    .eventTable thead,
+    .eventTable tbody,
+    .eventTable th,
+    .eventTable td,
+    .eventTable tr {
+        display: block;
+    }
+
+    .tableHead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    .eventTable tr { border: 1px solid #ccc }
+
+    .eventTable td{
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    .eventTable td:before {
+        /* Now like a table header */
+        position: absolute;
+        /* Top/left values mimic padding */
+        color: #ad4242;
+        font-weight: 500;
+        font-size: 20px;
+        top: calc(50% - 12px);
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+    }
+
+    .eventTable td:nth-of-type(1):before { content: "Картинка"}
+    .eventTable td:nth-of-type(2):before { content: "Название"}
+    .eventTable td:nth-of-type(3):before { content: "Дата и время начала"}
+    .eventTable td:nth-of-type(4):before { content: "Местонахождение"}
+
+}
