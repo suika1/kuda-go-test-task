@@ -36,6 +36,8 @@
 .close-btn{
     border: none;
     background-color: #eb7063;
+	color: #dedede;
+	font-size: 22px;
     padding: 8px 15px;
     cursor: pointer;
     border-radius: 5px;
