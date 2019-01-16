@@ -10,8 +10,8 @@ export const initialRequest = () => {
     let params = {
         actual_since: date1,
         page_size: 50,
-        expand: 'place,images,location,dates,participants',
-        fields: 'id,images,title,place,location,dates,participants'
+        expand: 'place,images,location,dates',
+        fields: 'id,images,title,place,location,dates'
     };
     Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
     return fetch(proxyUrl + url);

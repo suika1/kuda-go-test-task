@@ -2,27 +2,48 @@ import React from 'react';
 import { Button, Dialog, DialogTitle, DialogActions,
     DialogContent} from '@material-ui/core';
 
-export default class EventInfo extends React.Component{
+import './EventInfo.css';
 
+//Component responsible for rendering additional data in dialog window
+export default class EventInfo extends React.Component{
     //constructs nodes for info where possible
     renderInfoBody = () => {
         let {dates, images, location, place} = this.props.data;
         let finalDates = '', finalImages = '', finalLocation = '', finalPlace = '';
         if (dates){
-            finalDates = dates.map((a, i) => <p key={i}>Дата: {a.start_date}, время: {a.start_time}</p>)
+            finalDates = (
+                <React.Fragment>
+                    <h3>Даты проведения:</h3>
+                    <table className='dates-table'>
+                        <thead>
+                            <tr>
+                                <th>
+                                    Дата
+                                </th>
+                                <th>
+                                    Время
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                             {dates.map((a, i) => <tr key={i}><td>{a.start_date}</td><td>{a.start_time}</td></tr>)}
+                        </tbody>
+                    </table>
+                </React.Fragment>
+                )
         }
         if (images){
-            finalImages = images.map((a, i) => <img key={i} className='eventImg' alt='' src={a.image}/>)
+            finalImages = images.map((a, i) => <img key={i} className='event-info-img' alt='' src={a.image}/>)
         }
         if (location){
             finalLocation = <p>Местонахождение: {location.name}</p>;
         }
         if (place){
             finalPlace = (
-                <div>
-                    <p>Название места: {place.title}</p>
-                    <p>Адрес: {place.address}</p>
-                    <p>{place.phone}</p>
+                <div className='place-info'>
+                    <p className='place-title'>{place.title}</p>
+                    <p className='address'>{place.address}</p>
+                    <p className='phone'>{place.phone}</p>
                 </div>
             )
         }
@@ -38,11 +59,15 @@ export default class EventInfo extends React.Component{
 
     render(){
         return(
-            <Dialog open={this.props.open} onClose={this.props.handleClose}>
-                <DialogTitle>{this.props.data.title}</DialogTitle>
+            <Dialog
+                open={this.props.open}
+                onClose={this.props.handleClose}
+                className='event-info-dialog'
+            >
+                <DialogTitle className='title'>{this.props.data.title}</DialogTitle>
                 {this.renderInfoBody()}
                 <DialogActions>
-                    <Button onClick={this.props.handleClose}>Close</Button>
+                    <button className='close-btn' onClick={this.props.handleClose}>Close</button>
                 </DialogActions>
             </Dialog>
         )

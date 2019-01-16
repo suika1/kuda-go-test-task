@@ -8,8 +8,8 @@ time, mark, audio, video {
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
     font: inherit;
+    font-size: 100%;
     vertical-align: baseline;
     outline: none;
     -webkit-font-smoothing: antialiased;
@@ -20,23 +20,26 @@ time, mark, audio, video {
     box-sizing: border-box;
 }
 
-.testBtn{
-    position: absolute;
-    padding: 20px;
-    top: 60px;
+html * {
+    font-family: "Roboto" , "Helvetica Neue", sans-serif;
 }
 
-.eventTable *{
-    text-align: center;
-    vertical-align: middle;
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
 }
 
-.eventRow:hover{
-    box-shadow: 0 0 2px 2px grey;
-    cursor: pointer;
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
 }
 
-.eventImg{
-    max-width: 150px;
-    max-height: 150px;
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }

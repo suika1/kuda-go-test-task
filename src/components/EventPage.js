@@ -2,6 +2,8 @@ import React from 'react';
 import Event from './Event';
 import {sortFunc} from "../reducers/eventsReducer";
 
+import './EventPage.css';
+
 //class responsible for rendering current page
 export default class EventPage extends React.Component{
     constructor(props) {
@@ -47,20 +49,21 @@ export default class EventPage extends React.Component{
     onNextPageBtnClick = () => this.setState({page: this.state.page + 1});
 
     render(){
-        let nextPageBtnVisibility = this.props.isFetching || this.props.list.length === 0 ? 'hidden' : 'visible';
+        let {isFetching, list} = this.props;
+        let nextPageBtnVisibility = (isFetching && this.state.page * 10 > list.length) || list.length === 0 ? 'hidden' : 'visible';
         return (
             <React.Fragment>
                 <table className='eventTable'>
-                    <thead>
-                    <tr>
-                        <td>Картинка</td>
-                        <td>Название</td>
-                        <td>Дата и время начала </td>
-                        <td>Местонахождение</td>
-                    </tr>
+                    <thead className='tableHead'>
+                        <tr>
+                            <td>Картинка</td>
+                            <td>Название</td>
+                            <td>Дата и время начала </td>
+                            <td>Местонахождение</td>
+                        </tr>
                     </thead>
                     <tbody>
-                    {this.renderList()}
+                        {this.renderList()}
                     </tbody>
                 </table>
                 <button

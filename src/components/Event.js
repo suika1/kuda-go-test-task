@@ -1,6 +1,9 @@
 import React from 'react';
 import EventInfo from './EventInfo';
 
+import './Event.css';
+
+//Component which represents one event\one row of event table
 export default class Event extends React.Component{
     constructor(props){
         super(props);
@@ -43,7 +46,10 @@ export default class Event extends React.Component{
         let {title} = this.props.data;
         return (
             <React.Fragment>
-                <tr onClick={() => this.setState({eventInfoOpened: true})} className='eventRow'>
+                <tr
+                    onClick={() => this.setState({eventInfoOpened: true})}
+                    className='eventRow'
+                >
                     <td>{image}</td>
                     <td>{title}</td>
                     <td>{startDate}</td>
