@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Dialog, DialogTitle, DialogActions,
+import { Dialog, DialogTitle, DialogActions,
     DialogContent} from '@material-ui/core';
 
 import './EventInfo.css';
